@@ -89,13 +89,16 @@
     ];
 
     // number of months 
-    console.log(`Total Months: ${finances.length}`)
+ 
     // Total amount of Profit/loss overthe entire period
 
    
     var TotalAmount = 0;
     var NetTotalAmount = 0;
+    var change = [];
     var TotalMonthlyChanges = 0;
+    var min = 0;
+    var max = 0;
 
     for(var i = 0;  i < finances.length; i++){
         for(var k = 0; k < finances[i].length; k++){
@@ -110,15 +113,32 @@
 
     for (var j = 1; j < finances.length; j++){
         var MonthlyChange = finances[j][1] - finances[j - 1][1];
-        // console.log(MonthlyChange);
+        change.push(MonthlyChange);
+        // console.log(MonthlyChange); checking. changes.push informs a new array - MonthlyChange.
+        
+        if (MonthlyChange < min){
+            min = MonthlyChange;
+        }
+        if (MonthlyChange > max){
+            max = MonthlyChange;
+        } 
 
-
-   
+    }   
+    for (var j = 0; j < change.length; j++){
+        TotalMonthlyChanges += change[j];
     }
     // console.log("Total amount = $" + TotalAmount)
-    console.log("Net Total: $" + NetTotalAmount)
+   
 
-  
-        
+    console.log("FINANCIAL STATEMENT");
+    console.log("..................................................");
+    console.log(`Total Months: ${finances.length}`);
+    console.log("Net Total: $" + NetTotalAmount);
+    console.log("AVERAGE CHANGE: $" + 
+    (TotalMonthlyChanges / change.length).toFixed(2));
+    console.log("Greatest increasee in Profit:"  +  finances[j][0]
+     + " ($" + max +")");
+    console.log("Greatest Decrease in Profit:"  +  finances[j][0]
+     + " ($" + min +")");      
 
 }
