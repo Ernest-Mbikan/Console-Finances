@@ -1,0 +1,13 @@
+1. // Console-Finance
+
+2. var finances = [
+3.	['month1', value1],
+4	['monthe2', value2],
+5. //  create the variable NumberOfMonths = finances[0].length
+6. // Note Month = [0] and amount = [1]
+7. // Total number of months will involve an iterative calculationo of the element [0]
+8. // Use for loop for the calculation
+9. for (let i=0; i < finances.length; i++) {
+10.	
+11.	var NumberOfMonths = finances[0].length;
+12. 
